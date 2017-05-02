@@ -21,6 +21,11 @@ urlpatterns = [
     name = 'business-sign-up'),
   url(r'^business/$', views.business_home, name = 'business-home'),
 
+  url(r'^business/account/$',views.business_account, name = 'business-account'),
+  url(r'^business/product/$',views.business_product, name = 'business-product'),
+  url(r'^business/order/$',views.business_order, name = 'business-order'),
+  url(r'^business/report/$',views.business_report, name = 'business-report'),
+
   # sign in/ Sign Up sign out
   url(r'^api/social/', include('rest_framework_social_oauth2.urls')),
   # /convert-token (sign in/ sign up)

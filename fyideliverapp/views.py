@@ -12,6 +12,22 @@ def home(request):
 def business_home(request):
     return render(request, 'business/home.html', {})
 
+@login_required(login_url='/business/sign-in/')
+def business_account(request):
+    return render(request, 'business/account.html', {})
+
+@login_required(login_url='/business/sign-in/')
+def business_product(request):
+    return render(request, 'business/product.html', {})
+
+@login_required(login_url='/business/sign-in/')
+def business_order(request):
+    return render(request, 'business/order.html', {})
+
+@login_required(login_url='/business/sign-in/')
+def business_report(request):
+    return render(request, 'business/report.html', {})
+
 def business_sign_up(request):
     user_form = UserForm()
     business_form = BusinessForm()

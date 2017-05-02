@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Business {% endblock %}
+
+{% block sidebar %}
+  Business, Hi {{ request.user }}
+  <hr/>
+
+  <a href="{% url 'business-account' %}">Account</a>
+  -
+  <a href="{% url 'business-product' %}">Product</a>
+  -
+  <a href="{% url 'business-order' %}">Order</a>
+  -
+  <a href="{% url 'business-report' %}">Report</a>
+
+{% endblock%}
