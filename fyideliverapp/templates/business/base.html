@@ -3,15 +3,31 @@
 {% block title %} Business {% endblock %}
 
 {% block sidebar %}
-  Business, Hi {{ request.user }}
-  <hr/>
+  <div class="text-center">
+    <img class="img-circle" src="{{ MEDIA_URL }}{{ request.user.business.logo }}"
+      width="70" height="70" />
+    <br/>
+    <br/>
+    <h4>Hi, {{ request.user.get_full_name }}</h4>
+    <h5>{{ request.user.business.name }}</h5>
+  </div>
 
-  <a href="{% url 'business-account' %}">Account</a>
-  -
-  <a href="{% url 'business-product' %}">Product</a>
-  -
-  <a href="{% url 'business-order' %}">Order</a>
-  -
-  <a href="{% url 'business-report' %}">Report</a>
+  <div class="list-group">
+    <span class="text-uppercase">Dashboard</span>
+
+    <a href="{% url 'business-order' %}" class="list-group-item">Orders</a>
+    <a href="{% url 'business-product' %}" class="list-group-item">Products</a>
+    <a href="{% url 'business-report' %}" class="list-group-item">Reports</a>
+
+    <span class="text-uppercase">Profile</span>
+    <a href="{% url 'business-account' %}" class="list-group-item">Account</a>
+  </div>
+
+  <div class="text-center">
+    <a href="{% url 'business-sign-out' %}?next={{ request.path }}"
+        class="btn btn-pink">Logout</a>
+  </div>
+
+
 
 {% endblock%}
